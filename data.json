@@ -1,25 +1,25 @@
 {
-   "users":[
-     {
-       "email": "teterevdanil@gmail.com",
-       "password": "123456"
-     }
-   ],
+  "users": [
+    {
+      "_email": "teterevdanil@gmail.com",
+      "_password": "123456"
+    }
+  ],
   "skills": [
     {
-      "number": 12,
+      "number": "2",
       "text": "Возраст начала занятий на скрипке"
     },
     {
-      "number": 76,
+      "number": "3",
       "text": "Концертов отыграл"
     },
     {
-      "number": 30,
+      "number": "4",
       "text": "Максимальное число городов в туре"
     },
     {
-      "number": 20,
+      "number": "5",
       "text": "Лет на сцене в качестве скрипача"
     }
   ],
@@ -68,6 +68,11 @@
       "src": "./assets/img/products/Work9.jpg",
       "name": "Вино вдохновение",
       "price": 600
+    },
+    {
+      "src": "assets\\img\\products\\_MG_3210.JPG",
+      "name": "Игрушка",
+      "price": 500
     }
   ]
 }
