@@ -26,7 +26,7 @@ router.post('/', (req, res, next) => {
     if (error) {
       req.flash('mail', 'При отправке письма произошла ошибка!');
     }
-    req.flash('msgemail', 'Письмо успешно отправлено!');
+    req.flash('mail', 'Письмо успешно отправлено!');
   })
 })
 
