@@ -25,8 +25,10 @@ router.post('/', (req, res, next) => {
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
       req.flash('mail', 'При отправке письма произошла ошибка!');
+      return res.redirect('/#mail')
     }
     req.flash('mail', 'Письмо успешно отправлено!');
+    return res.redirect('/#mail')
   })
 })
 

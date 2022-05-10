@@ -11,11 +11,10 @@ router.get('/', (req, res, next) => {
   if (!req.session.isAdmin) {
     res.redirect('/login');
   }
-
-
-  // TODO: Реализовать, подстановку в поля ввода формы 'Счетчики'
+ // TODO: Реализовать, подстановку в поля ввода формы 'Счетчики'
   // актуальных значений из сохраненых (по желанию)
-  res.render('pages/admin', { title: 'Admin page' })
+ // res.render('pages/index', { title: 'Main page', products, skills, msgemail: req.flash('mail')[0] })
+  res.render('pages/admin', { title: 'Admin page', msgskill: req.flash('msgskill')[0],msgfile: req.flash('msgfile')})
 })
 
 router.post('/skills', (req, res, next) => {
@@ -32,8 +31,10 @@ router.post('/skills', (req, res, next) => {
    db.set('skills[1]', {number: concerts, text:'Концертов отыграл'}).write();
    db.set('skills[2]', {number: cities, text:'Максимальное число городов в туре'}).write();
    db.set('skills[3]', {number: years, text:'Лет на сцене в качестве скрипача'}).write();
-   req.flash('status', 'Данные обновленны');
-   res.redirect('/admin');
+ //  req.flash('status', 'Данные обновленны');
+  // res.redirect('/admin');
+   req.flash('msgskill', 'Данные обновленны');
+   return res.redirect('/admin')
 })
 
 router.post('/upload', (req, res, next) => {
@@ -49,7 +50,7 @@ router.post('/upload', (req, res, next) => {
     
       form.parse(req, (err, fields, files) => {
         if (err) {
-         req.flash('status',err);
+         req.flash('msgfile',err);
          res.redirect('/admin');
         }
 
@@ -66,7 +67,7 @@ router.post('/upload', (req, res, next) => {
           .get('products')
           .push({src: dirPhoto, name: name, price: Number(price) })
           .write();   
-          req.flash('status',"Данные успешно добавленны");
+          req.flash('msgfile',"Данные успешно добавленны");
           res.redirect('/admin');
 
       });

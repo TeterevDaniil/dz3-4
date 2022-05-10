@@ -24,7 +24,7 @@ app.use(
     cookie: {
       path: '/',
       httpOnly: true,
-      maxAge: 86400000
+      maxAge: 50000
     },
     saveUninitialized: false,
     resave: false
