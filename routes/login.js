@@ -7,7 +7,7 @@ router.get('/', (req, res, next) => {
   if (req.session.isAdmin) {
     res.redirect('/admin');
   }
-  res.render('pages/login', { title: 'SigIn page' })
+  res.render('pages/login', { title: 'SigIn page',msglogin: req.flash('msglogin') })
 })
 
 router.post('/', (req, res, next) => {
